@@ -224,4 +224,33 @@ document.querySelectorAll('.card').forEach(function(card){
     });
   }
 });
-</script></body></html>
+</script>
+<script>
+document.querySelectorAll('.card').forEach(function(card){
+  if(card.querySelector('.aon-review'))return;
+  card.setAttribute('role','link');
+  card.setAttribute('tabindex','0');
+  card.style.cursor='pointer';
+  var openDetail=function(){
+    var q=new URLSearchParams({
+      title:(card.querySelector('h4')||{}).textContent||'',
+      english:(card.querySelector('.en')||{}).textContent||'',
+      year:(card.querySelector('.yr')||{}).textContent||'',
+      type:(card.querySelector('.ty')||{}).textContent||'',
+      topic:(card.querySelector('.jr')||{}).textContent||card.dataset.f||'',
+      summary:(card.querySelector('.one')||{}).textContent||'',
+      file:(card.querySelector('.fn')||card.querySelector('.own')||{}).textContent||''
+    });
+    var pubmed=card.querySelector('a.pm:not(.aon-review)');
+    var doi=card.querySelector('a.doi');
+    if(pubmed)q.set('pubmed',pubmed.href);
+    if(doi)q.set('doi',doi.href);
+    location.href='paper-detail.html?'+q.toString();
+  };
+  card.addEventListener('click',function(e){if(!e.target.closest('a'))openDetail();});
+  card.addEventListener('keydown',function(e){if(e.key==='Enter')openDetail();});
+  var title=card.querySelector('h4');
+  if(title)title.title='클릭하여 상세 HTML 보기';
+});
+</script>
+</body></html>
