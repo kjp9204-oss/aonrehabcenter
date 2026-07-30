@@ -206,5 +206,22 @@ document.querySelectorAll('.card').forEach(function(card){
       if(e.key==='Enter')location.href='library/leveling-up-esports-health-2021.html';
     });
   }
+  if(title.indexOf('Current Concepts for Anterior Cruciate Ligament Reconstruction: A Criterion-Based Rehabilitation Progression')!==-1){
+    card.setAttribute('role','link');
+    card.setAttribute('tabindex','0');
+    card.style.cursor='pointer';
+    var adamsLink=document.createElement('a');
+    adamsLink.className='pm aon-review';
+    adamsLink.href='library/adams-2012-acl-criterion-based.html';
+    adamsLink.textContent='AON 상세 리뷰';
+    if(foot&&!foot.querySelector('.aon-review'))foot.appendChild(adamsLink);
+    card.addEventListener('click',function(e){
+      if(e.target.closest('a'))return;
+      location.href='library/adams-2012-acl-criterion-based.html';
+    });
+    card.addEventListener('keydown',function(e){
+      if(e.key==='Enter')location.href='library/adams-2012-acl-criterion-based.html';
+    });
+  }
 });
 </script></body></html>
