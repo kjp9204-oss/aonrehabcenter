@@ -86,7 +86,7 @@ footer{text-align:center;padding:42px 20px;color:var(--sub);font-size:.83rem;bor
 </style></head><body>
 <header class="aonbar"><a href="./"><span class="aonmark">AN<i></i></span><span><b>에이온 재활운동센터</b><small>AON PHYSIOTHERAPY · SONGPA</small></span></a><nav><a href="./#about">센터소개</a><a href="posts/">게시글</a><a href="library.html">라이브러리</a><a href="resources.html">자료실</a><a href="https://litt.ly/aon_physio" target="_blank" rel="noopener">AON 링크</a></nav></header>
 <div class="cover" style="background:linear-gradient(145deg,#101a16 0%,#173d31 62%,#275c49 100%)">
-<p class="eyebrow">AON · CLINICAL EVIDENCE LIBRARY</p><h1>근거를 모으고,<br>현장에 맞게 읽습니다.</h1><p class="sub">에이온 재활운동센터 임상근거 아카이브 · 2000–2026<br>부위별 16개 주제 · 원문 보유 여부와 임상 우선순위 표시</p><div class="stats"><div class="stat"><b>293</b><span>총 논문</span></div><div class="stat"><b>177</b><span>📁 PDF 소장</span></div><div class="stat"><b>116</b><span>🔗 색인만</span></div><div class="stat"><b>26</b><span>최우선 ★★</span></div><div class="stat"><b>16</b><span>주제 분류</span></div></div></div>
+<p class="eyebrow">AON · CLINICAL EVIDENCE LIBRARY</p><h1>근거를 모으고,<br>현장에 맞게 읽습니다.</h1><p class="sub">에이온 재활운동센터 임상근거 아카이브 · 2000–2026<br>부위별 16개 주제 · 원문 위치 재검증 및 독립 리뷰 진행 중</p><div class="stats"><div class="stat"><b>293</b><span>총 색인</span></div><div class="stat"><b>1</b><span>✅ 원문 확인</span></div><div class="stat"><b>292</b><span>🔎 위치 재확인</span></div><div class="stat"><b>26</b><span>최우선 ★★</span></div><div class="stat"><b>16</b><span>주제 분류</span></div></div></div>
 <nav class="top"><span class="brand">AON · EVIDENCE</span><a href="#toc">목차</a><a href="#sections">부위별</a><a href="#timeline">연도</a><a href="#all">전체 검색</a><a href="#method">방법</a></nav>
 <main><div class="note red"><b>임상 활용 안내 —</b> 이 목록은 에이온 재활운동센터의 교육·탐색용 근거 아카이브이며 진단이나 개인별 의료행위를 대신하지 않습니다. 실제 적용 전에는 원문 전체, 대상자 특성, 금기와 담당 의료진의 판단을 함께 확인합니다.</div>
 <div class="toc" id="toc"><h2>📑 목차</h2>
@@ -102,7 +102,7 @@ footer{text-align:center;padding:42px 20px;color:var(--sub);font-size:.83rem;bor
 </ul></div></div></div>
 
 <div class="note"><b>카드 읽는 법 —</b> 
-<span class="own y" style="display:inline-block">📁 PDF 소장</span> 은 센터 내부 근거 보관함에서 원문 보유가 확인된 문헌,
+<span class="own y" style="display:inline-block">📁 PDF 소장</span> 표시는 이전 작업 폴더에서 가져온 색인이며 현재 파일 위치를 다시 검증하고 있습니다. 실제 확인된 자료만 <b>✅ 원문 확인</b>으로 전환합니다.
 <span class="own n" style="display:inline-block">🔗 색인만</span> 은 PubMed에서 확인만 하고 원문은 없는 것입니다.
 ★★는 최우선(대규모 RCT·국제 합의문·개념 원전), ★는 중요.</div>
 
@@ -160,4 +160,51 @@ q.addEventListener('input',run);
 chips.forEach(ch=>ch.addEventListener('click',()=>{const k=ch.dataset.k,v=ch.dataset.v;
 const same=F[k]===v;chips.forEach(o=>{if(o.dataset.k===k)o.classList.remove('on')});
 F[k]=same?'':v;if(!same)ch.classList.add('on');run();}));
-run();</script></body></html>
+run();</script><script>
+document.querySelectorAll('.card').forEach(function(card){
+  var title=(card.querySelector('.en')||{}).textContent||'';
+  var foot=card.querySelector('.cfoot');
+  if(card.dataset.o==='y'&&foot){
+    if(!foot.querySelector('.aon-pubmed')){
+      var pubmed=document.createElement('a');
+      pubmed.className='pm aon-pubmed';
+      pubmed.href='https://pubmed.ncbi.nlm.nih.gov/?term='+encodeURIComponent(title);
+      pubmed.target='_blank';
+      pubmed.rel='noopener';
+      pubmed.textContent='PubMed';
+      foot.appendChild(pubmed);
+    }
+    if(!foot.querySelector('.aon-doi')){
+      var doi=document.createElement('a');
+      doi.className='doi aon-doi';
+      doi.href='https://search.crossref.org/?q='+encodeURIComponent(title);
+      doi.target='_blank';
+      doi.rel='noopener';
+      doi.textContent='DOI 찾기';
+      foot.appendChild(doi);
+    }
+  }
+  if(title.indexOf('Leveling Up Esports Health: Current Status and Call to Action')!==-1){
+    card.dataset.o='verified';
+    var badge=card.querySelector('.own');
+    if(badge){badge.className='own y';badge.textContent='✅ 원문 확인';}
+    if(foot&&!foot.querySelector('.aon-review')){
+      var link=document.createElement('a');
+      link.className='pm aon-review';
+      link.href='library/leveling-up-esports-health-2021.html';
+      link.textContent='AON 상세 리뷰';
+      foot.appendChild(link);
+    }
+    card.setAttribute('role','link');
+    card.setAttribute('tabindex','0');
+    card.style.cursor='pointer';
+    card.addEventListener('click',function(e){
+      if(e.target.closest('a'))return;
+      location.href='library/leveling-up-esports-health-2021.html';
+    });
+    card.addEventListener('keydown',function(e){
+      if(e.key==='Enter')location.href='library/leveling-up-esports-health-2021.html';
+    });
+  }
+});
+</script></body></html>
