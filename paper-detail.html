@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,follow">
+  <title>논문 상세 | 에이온 재활운동센터</title>
+  <style>
+    :root{--ink:#17191c;--muted:#6d7278;--line:#e7e7e4;--paper:#f6f5f1;--red:#ed4438;--white:#fff}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"Pretendard","Noto Sans KR",sans-serif;line-height:1.7}
+    a{color:inherit}.top{max-width:980px;margin:auto;padding:24px;display:flex;justify-content:space-between;align-items:center}
+    .brand{font-weight:900;text-decoration:none}.brand em{color:var(--red);font-style:normal}.back{font-size:14px;color:var(--muted)}
+    main{max-width:980px;margin:auto;padding:42px 24px 90px}.hero{border-top:1px solid var(--ink);padding:54px 0 44px}
+    .eyebrow{color:var(--red);font-size:12px;font-weight:900;letter-spacing:.14em}.meta{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+    .meta span{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 11px;font-size:12px;font-weight:800}
+    h1{font-size:clamp(34px,6vw,64px);line-height:1.12;letter-spacing:-.05em;margin:18px 0}.english{font-size:18px;color:var(--muted);max-width:820px}
+    .grid{display:grid;grid-template-columns:1.25fr .75fr;gap:16px}.box{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px}
+    .box h2{font-size:15px;color:var(--red);letter-spacing:.08em;margin:0 0 16px}.summary{font-size:19px;margin:0}
+    .links{display:grid;gap:10px}.links a{display:block;text-decoration:none;background:var(--ink);color:#fff;border-radius:12px;padding:13px 15px;font-weight:800}
+    .links a.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}.notice{margin-top:16px;color:var(--muted);font-size:13px}
+    footer{border-top:1px solid var(--line);padding:28px 24px;text-align:center;color:var(--muted);font-size:12px}
+    @media(max-width:700px){.top,main{padding-left:18px;padding-right:18px}.grid{grid-template-columns:1fr}.hero{padding-top:38px}}
+  </style>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="./"><em>에이온</em> 재활운동센터</a>
+    <a class="back" href="research-library.html">← 논문 목록</a>
+  </header>
+  <main>
+    <section class="hero">
+      <span class="eyebrow">AON · PAPER RECORD</span>
+      <div class="meta"><span id="year">연도 확인 중</span><span id="type">연구유형 확인 중</span><span id="topic">주제 확인 중</span></div>
+      <h1 id="title">논문 정보를 불러오는 중입니다.</h1>
+      <p class="english" id="english"></p>
+    </section>
+    <section class="grid">
+      <article class="box">
+        <h2>AON QUICK SUMMARY</h2>
+        <p class="summary" id="summary">라이브러리에 기록된 요약을 불러옵니다.</p>
+        <p class="notice">이 페이지는 빠른 탐색용 기록입니다. 임상 적용이나 인용 전에는 원문 전체와 연구 대상, 방법, 통계 및 한계를 다시 확인합니다.</p>
+      </article>
+      <aside class="box">
+        <h2>SOURCE & NEXT STEP</h2>
+        <div class="links">
+          <a id="pubmed" target="_blank" rel="noopener">PubMed에서 확인 ↗</a>
+          <a id="doi" class="secondary" target="_blank" rel="noopener">DOI·원문 찾기 ↗</a>
+        </div>
+        <p class="notice" id="file"></p>
+      </aside>
+    </section>
+  </main>
+  <footer>© 2026 AON Physiotherapy · 건강, 움직이면 바뀝니다.</footer>
+  <script>
+    const p=new URLSearchParams(location.search);
+    const value=(key,fallback='확인 필요')=>p.get(key)||fallback;
+    const title=value('title','제목 정보가 없습니다.');
+    document.title=title+' | 에이온 논문 라이브러리';
+    document.getElementById('title').textContent=title;
+    document.getElementById('english').textContent=value('english','');
+    document.getElementById('year').textContent=value('year','연도 미상');
+    document.getElementById('type').textContent=value('type','유형 확인 필요');
+    document.getElementById('topic').textContent=value('topic','주제 확인 필요');
+    document.getElementById('summary').textContent=value('summary','상세 요약 준비 중입니다.');
+    document.getElementById('file').textContent=value('file','원문 보유 여부를 확인 중입니다.');
+    const english=value('english',title);
+    const pubmed=p.get('pubmed')||'https://pubmed.ncbi.nlm.nih.gov/?term='+encodeURIComponent(english);
+    const doi=p.get('doi')||'https://search.crossref.org/?q='+encodeURIComponent(english);
+    document.getElementById('pubmed').href=pubmed;
+    document.getElementById('doi').href=doi;
+  </script>
+</body>
+</html>
