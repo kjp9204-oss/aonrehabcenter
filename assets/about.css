@@ -37,3 +37,15 @@
 .aboutContact{background:#282321}.aboutContact p{color:#d5c9c0}
 @media(max-width:900px){.aboutWork{grid-template-columns:1fr}.aboutWork>div:last-child{padding:25px}.aboutWorkVisual{min-height:390px}}
 @media(max-width:540px){.aboutHero h1{font-size:36px}.aboutWork{padding:10px;border-radius:20px}.aboutWorkVisual{min-height:290px}.aboutWork>div:last-child{padding:22px 12px}.aboutWork h2{font-size:34px}.directorPortrait{aspect-ratio:4/5;border-radius:12px}.directorCopy h2{font-size:36px}}
+
+
+/* 2026-07-31 mobile Korean typography correction */
+@media(max-width:540px){
+  .aboutHero>div,.directorCopy{min-width:0}
+  .aboutHero h1{font-size:30px;line-height:1.16;letter-spacing:-.05em;word-break:keep-all;overflow-wrap:normal}
+  .visionCard h2,.pointHeading h2,.directorIntro h2{font-size:29px;line-height:1.2}
+  .directorCopy h2{font-size:29px;line-height:1.15}
+  .directorLead{font-size:15px!important;line-height:1.65!important}
+  .missionColumn h3,.pointGrid h3{font-size:18px}
+  .aboutWork h2,.aboutContact h2{font-size:28px;line-height:1.2}
+}
