@@ -14,3 +14,27 @@
 .aboutContact{margin-top:65px;padding:42px;border-radius:23px;background:#173d31;color:#fff;display:grid;grid-template-columns:180px 1fr auto;gap:35px;align-items:center}.aboutContact>img{width:100%;padding:18px;border-radius:16px;background:#fff}.aboutContact h2{margin:8px 0;font-size:34px;line-height:1.2}.aboutContact p{color:#bad1c7}.aboutContact>div:last-child{display:flex;flex-direction:column;align-items:flex-end;gap:9px}.aboutContact a{color:#fff;font-size:11px;font-weight:850}
 @media(max-width:900px){.aboutHero,.visionSection,.directorCard{grid-template-columns:1fr}.aboutHero{padding:55px 28px}.visionSection{gap:36px}.pointHeading{grid-template-columns:1fr}.pointGrid{grid-template-columns:1fr 1fr}.directorCard.reverse>img{order:0}.directorCard>img{height:auto;min-height:0;aspect-ratio:4/5;position:static;object-fit:cover;object-position:left center}.aboutContact{grid-template-columns:120px 1fr}.aboutContact>div:last-child{grid-column:1/-1;align-items:flex-start}.careerColumns{grid-template-columns:1fr}}
 @media(max-width:540px){.aboutPage{padding:0 13px 55px}.aboutBrandSymbol{width:35px;height:35px}.aboutHero{min-height:auto;padding:45px 20px 20px;border-radius:0 0 21px 21px;gap:28px}.aboutHero h1{font-size:42px}.aboutHero p{font-size:14px}.aboutHeroActions{flex-direction:column}.aboutHeroActions a{text-align:center}.aboutHero>img{border-radius:14px}.visionSection,.pointSection{margin-top:38px;padding:28px 20px;border-radius:20px}.visionCard h2,.pointHeading h2{font-size:38px}.missionColumn>article{grid-template-columns:36px 1fr}.pointGrid{grid-template-columns:1fr}.pointGrid article{min-height:auto}.pointGrid h3{margin-top:20px}.directorIntro{padding:45px 8px 25px}.directorCard{padding:12px;gap:10px;border-radius:18px}.directorCopy{padding:18px 8px}.directorCopy h2{font-size:42px}.directorLead{font-size:17px!important}.careerColumns>div{padding:16px}.aboutContact{padding:24px;grid-template-columns:1fr}.aboutContact>img{width:150px}.aboutContact h2{font-size:27px}.aboutContact>div:last-child{grid-column:auto}footer{padding-left:18px;padding-right:18px}}
+
+/* About page order and AON basic palette */
+.aboutPage{display:flex;flex-direction:column}
+.aboutHero{order:0}
+.directorIntro{order:1}
+.directorCard{order:2}
+.directorCard.reverse{order:3}
+.visionSection{order:4}
+.pointSection{order:5}
+.aboutWork{order:6}
+.aboutContact{order:7}
+.aboutHero>img{aspect-ratio:1/1;object-fit:cover;object-position:center}
+.directorCard>img{height:auto;min-height:0;aspect-ratio:16/10;position:sticky;object-fit:cover;object-position:center top}
+.aboutWork{margin:10px 0 65px;padding:18px;border-radius:28px;background:#f8f1e5;display:grid;grid-template-columns:1.12fr .88fr;gap:42px;align-items:center}
+.aboutWorkVisual{min-height:520px;border-radius:20px;background:linear-gradient(rgba(39,31,26,.14),rgba(39,31,26,.14)),url("about/center-points.jpg") center/cover}
+.aboutWork>div:last-child{padding:34px 34px 34px 0}
+.aboutWork span{color:var(--red);font-size:9px;font-weight:900;letter-spacing:.16em}
+.aboutWork h2{margin:14px 0 18px;font-size:clamp(34px,4.3vw,56px);line-height:1.12;letter-spacing:-.06em}
+.aboutWork p{color:var(--muted);font-size:14px}
+.aboutWork ul{margin:24px 0 0;padding:0;list-style:none}
+.aboutWork li{padding:12px 0;border-top:1px solid #dfd2c3;font-size:12px;font-weight:750}
+.aboutContact{background:#282321}.aboutContact p{color:#d5c9c0}
+@media(max-width:900px){.aboutWork{grid-template-columns:1fr}.aboutWork>div:last-child{padding:25px}.aboutWorkVisual{min-height:390px}.directorCard>img{position:static;aspect-ratio:16/10}}
+@media(max-width:540px){.aboutHero h1{font-size:36px}.aboutWork{padding:10px;border-radius:20px}.aboutWorkVisual{min-height:290px}.aboutWork>div:last-child{padding:22px 12px}.aboutWork h2{font-size:34px}.directorCard>img{aspect-ratio:16/10}.directorCopy h2{font-size:36px}}
