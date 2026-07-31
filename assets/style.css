@@ -111,3 +111,27 @@ main{max-width:1380px;margin:auto;padding:0 max(4vw,22px)}.hero{min-height:690px
 .homeWelcomeImage a{display:block}
 .homeWelcomeImage img{display:block;width:100%;height:auto}
 @media(max-width:540px){.homeWelcomeImage{margin:18px 0 38px;border-radius:16px}}
+
+
+/* 2026-07-31 HOW WE WORK image and EBP library preview */
+.homeWorkImage{min-height:0;aspect-ratio:16/9;border-radius:20px;background:#f8f1e5 url("about/center-points.jpg") center/contain no-repeat}
+.evidenceSection{margin:75px 0;padding:46px;border-radius:28px;background:#282321;color:#fff;display:grid;grid-template-columns:.82fr 1.18fr;gap:48px;align-items:center}
+.evidenceCopy>span{color:#ff7168;font-size:9px;font-weight:900;letter-spacing:.15em}
+.evidenceCopy h2{margin:14px 0 20px;font-size:clamp(32px,4vw,54px);line-height:1.13;letter-spacing:-.055em}
+.evidenceCopy p{color:#d2c8c0;font-size:14px}
+.evidenceCopy>a{display:inline-block;margin-top:24px;color:#fff;font-size:11px;font-weight:900}
+.ebpPillars{margin-top:25px;border-top:1px solid #5a514c}
+.ebpPillars>div{padding:12px 0;border-bottom:1px solid #5a514c;display:grid;grid-template-columns:42px 1fr;gap:12px}
+.ebpPillars b{color:#ff7168;font-size:11px}.ebpPillars span{font-size:12px;font-weight:750}
+.libraryPreview{padding:18px;border-radius:20px;background:#fff;color:#282321;text-decoration:none;box-shadow:0 24px 55px rgba(0,0,0,.2)}
+.previewBar{height:34px;display:flex;align-items:center;gap:7px;border-bottom:1px solid #eee6dc}
+.previewBar i{width:8px;height:8px;border-radius:50%;background:#e7ddd2}.previewBar i:first-child{background:#ef5a50}.previewBar strong{margin-left:auto;font-size:8px;letter-spacing:.14em}
+.previewSearch{margin:15px 0;padding:11px 14px;border-radius:9px;background:#f5f1eb;color:#948b84;font-size:10px}
+.previewCards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.previewCards article{min-width:0;padding:14px;border:1px solid #ebe3da;border-radius:11px;background:#fff}
+.previewCards span{color:var(--red);font-size:6px;font-weight:900;letter-spacing:.08em}
+.previewCards h3{margin:8px 0;font-size:12px;line-height:1.35;word-break:keep-all}
+.previewCards p{margin:0;color:#766e68;font-size:8px;line-height:1.5}
+.previewLink{display:block;margin-top:14px;text-align:right;font-size:9px}
+@media(max-width:900px){.evidenceSection{grid-template-columns:1fr}.homeWorkImage{min-height:0}}
+@media(max-width:540px){.evidenceSection{margin:38px 0;padding:28px 20px;gap:28px;border-radius:20px}.evidenceCopy h2{font-size:29px}.evidenceCopy p{font-size:13px}.libraryPreview{padding:12px}.previewCards{grid-template-columns:1fr}.previewCards article{padding:12px}.previewCards h3{font-size:13px}.previewCards p{font-size:9px}}
