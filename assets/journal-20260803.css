@@ -1,0 +1,27 @@
+/* AON Journal · 2026-08-03 public articles */
+.articlePage{background:#fff}
+.articlePage .siteHeader{position:relative;background:#fff}
+.articlePage .article{max-width:1240px;padding-top:0}
+.articlePage .articleHero{max-width:980px;margin:0 auto;padding:76px 24px 52px;border-radius:0;background:#fff;color:#191716;text-align:center;border-bottom:1px solid #d9d3cd}
+.articlePage .articleHero>span{display:inline-block;color:var(--red);font-size:10px;letter-spacing:.2em}
+.articlePage .articleHero h1{max-width:900px;margin:22px auto 18px;font-family:Georgia,"Noto Serif KR",serif;font-size:clamp(44px,7vw,86px);font-weight:500;line-height:1.05;letter-spacing:-.055em;word-break:keep-all}
+.articlePage .articleHero>p{max-width:720px;margin:0 auto;color:#5f5954;font-family:Georgia,"Noto Serif KR",serif;font-size:clamp(17px,2vw,23px);line-height:1.55}
+.articlePage .articleHero>div{justify-content:center;margin-top:26px;color:#403a36;text-transform:uppercase;letter-spacing:.07em}
+.articlePage .articleHero time{color:#8b837d}
+.articlePage .articleLayout{padding-top:62px;grid-template-columns:minmax(0,700px) 220px;gap:82px}
+.articlePage .articleLayout article{font-family:Georgia,"Noto Serif KR",serif;font-size:17px;line-height:1.9;min-width:0}
+.articlePage .articleLayout h2{margin-top:60px;font-family:Pretendard,"Noto Sans KR",sans-serif;font-size:29px;line-height:1.35;letter-spacing:-.04em;word-break:keep-all}
+.articlePage .articleLayout h3{word-break:keep-all}
+.articlePage .articleCallout{margin:44px 0;padding:30px 34px;border:0;border-top:4px solid #191716;border-bottom:1px solid #191716;border-radius:0;background:#fff}
+.articlePage .articleCallout strong{font-family:Pretendard,"Noto Sans KR",sans-serif;font-size:24px;line-height:1.4}
+.articlePage .articleAside{border-top:4px solid #191716;border-radius:0;background:#fff;padding:18px 0}
+.articlePage .articleAside>b{font-family:Georgia,"Noto Serif KR",serif;font-size:21px;line-height:1.35}
+.articlePage .articleAside .asideCta{border-radius:0;background:#191716;text-align:center}
+.editorialMedia{margin:44px 0}
+.editorialMedia img{display:block;width:100%;height:auto;border:0;background:#f6f1e8}
+.editorialMedia figcaption{margin-top:9px;color:#7a736d;font-family:Pretendard,"Noto Sans KR",sans-serif;font-size:11px}
+.storyFooter{padding:42px max(5vw,24px);background:#211e1c;color:#ded7d0;display:grid;grid-template-columns:1fr 2fr;gap:32px;font-family:Pretendard,"Noto Sans KR",sans-serif}
+.storyFooter strong{display:block;color:#fff;font-size:16px}.storyFooter em{display:block;margin-top:4px;color:#ff746c;font-size:10px;font-style:normal;letter-spacing:.13em}
+.storyFooterInfo{display:flex;flex-wrap:wrap;gap:7px 18px;align-content:center;font-size:10px}.storyFooterInfo span{position:relative}.storyFooterInfo span+span:before{content:"·";position:absolute;left:-11px;color:#756d67}.storyFooterInfo small{width:100%;color:#958c85}.storyFooterInfo a{color:#fff}
+@media(max-width:900px){.articlePage .articleLayout{grid-template-columns:1fr;gap:34px}.articlePage .articleAside{position:static}.storyFooter{grid-template-columns:1fr}}
+@media(max-width:540px){.articlePage .articleHero{padding:48px 8px 34px}.articlePage .articleHero h1{font-size:34px;line-height:1.12;letter-spacing:-.045em}.articlePage .articleHero>p{font-size:16px}.articlePage .articleHero>div{flex-wrap:wrap}.articlePage .articleLayout{padding-top:36px}.articlePage .articleLayout article{font-size:16px;overflow-wrap:anywhere}.articlePage .articleLayout h2{font-size:25px}.articlePage .articleCallout{padding:23px 18px}.articlePage .articleCallout strong{font-size:20px}.storyFooter{padding:34px 22px}.storyFooterInfo{display:grid;gap:4px}.storyFooterInfo span+span:before{display:none}}
