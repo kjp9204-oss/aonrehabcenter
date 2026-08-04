@@ -1,33 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://kjp9204-oss.github.io/aonrehabcenter/</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://kjp9204-oss.github.io/aonrehabcenter/adams-acl-rehabilitation.html</loc>
-    <lastmod>2026-07-29</lastmod>
+    <loc>https://kjp9204-oss.github.io/aonrehabcenter/about.html</loc>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://kjp9204-oss.github.io/aonrehabcenter/adams-2012-acl-protocol.html</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://kjp9204-oss.github.io/aonrehabcenter/research-library.html</loc>
-    <lastmod>2026-07-29</lastmod>
+    <loc>https://kjp9204-oss.github.io/aonrehabcenter/adams-acl-rehabilitation.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kjp9204-oss.github.io/aonrehabcenter/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://kjp9204-oss.github.io/aonrehabcenter/library/adams-2012-acl-criterion-based.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kjp9204-oss.github.io/aonrehabcenter/library/leveling-up-esports-health-2021.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kjp9204-oss.github.io/aonrehabcenter/library.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kjp9204-oss.github.io/aonrehabcenter/posts/2026-08-03.html</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kjp9204-oss.github.io/aonrehabcenter/posts/adams-acl-rehabilitation.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kjp9204-oss.github.io/aonrehabcenter/posts/cardiorespiratory-fitness-and-chronic-pain.html</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kjp9204-oss.github.io/aonrehabcenter/posts/esports-athlete-rehab-load-recovery.html</loc>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kjp9204-oss.github.io/aonrehabcenter/posts/esports-rehab-beyond-posture.html</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kjp9204-oss.github.io/aonrehabcenter/posts/</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://kjp9204-oss.github.io/aonrehabcenter/posts/lateral-elbow-tendinopathy-video-summary.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kjp9204-oss.github.io/aonrehabcenter/posts/walking-to-running-physiology.html</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kjp9204-oss.github.io/aonrehabcenter/posts/why-hand-feels-weak.html</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kjp9204-oss.github.io/aonrehabcenter/research-library.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://kjp9204-oss.github.io/aonrehabcenter/resources.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
