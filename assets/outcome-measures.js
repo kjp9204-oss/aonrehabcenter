@@ -14,12 +14,90 @@ const tools=[
 {id:"leaf-q",name:"여성 운동선수 에너지 가용성 설문",abbreviation:"LEAF-Q",category:"선수 건강",region:"athlete",description:"여성 운동선수의 낮은 에너지 가용성과 관련된 위험 신호를 선별합니다.",purpose:"에너지 가용성"},
 {id:"ioc-reds-cat2",name:"스포츠 상대적 에너지 결핍 임상평가 도구",abbreviation:"IOC REDs CAT2",category:"선수 건강",region:"athlete",description:"상대적 에너지 결핍 위험을 임상적으로 평가하고 다음 조치를 논의하는 틀입니다.",purpose:"선수 건강 선별"}
 ];
-const key="aon-outcome-tool-favorites-v1",validIds=new Set(tools.map(t=>t.id));let favorites=new Set(),favoritesOnly=false;
+
+tools.unshift(
+ {id:"ndi",name:"목 통증 기능장애 설문",abbreviation:"NDI",category:"목·편타손상",region:"neck",description:"목 통증이 일상생활과 활동에 미치는 영향을 기록하는 도구입니다.",purpose:"목 통증과 일상 기능",officialUrl:"https://eprovide.mapi-trust.org/instruments/neck-disability-index",sourceStatus:"Mapi 공식 안내에 한국어판이 등록되어 있습니다. 사용할 판본과 문항을 확인해야 합니다.",rightsStatus:"© Howard Vernon. 사용·복제·전자화에 대한 해당 조건을 확인해야 합니다. AON 공개 재배포 및 전자판 허가 미확인."},
+ {id:"wdq",name:"편타손상 관련 어려움 설문",abbreviation:"WDQ",category:"목·편타손상",region:"neck",description:"목이 급격히 흔들리는 손상 이후 증상과 생활의 어려움을 살펴보는 도구입니다.",purpose:"편타손상 이후 증상과 생활 영향",officialUrl:"https://www.worksafe.qld.gov.au/__data/assets/pdf_file/0015/20940/whiplash_disability_questionnaire1.pdf",sourceStatus:"WorkSafe Queensland가 제공하는 영어 원문입니다. 한국어 번역 예비연구(2018)가 있으며, 본 페이지는 한국어 설문을 배포하지 않습니다.",rightsStatus:"WorkSafe 원문에 허가받은 재게시 표시가 있습니다. 이것이 AON의 재배포 허가를 뜻하지는 않습니다. 한국어 전자화·공개 배포 허가 미확인.",officialLabel:"공식기관의 영어 원문 PDF 확인 ↗"}
+);
+Object.assign(tools.find(t=>t.id==="hit-6"),{
+ officialUrl:"https://eprovide.mapi-trust.org/instruments/headache-impact-test",
+ sourceStatus:"Mapi·IQVIA 공식 안내 기준으로 사용할 한국어판과 표준·단기 판본을 확인해야 합니다.",
+ rightsStatus:"© IQVIA. 사용·채점 및 전자화는 라이선스·화면 검토 조건 확인이 필요합니다. AON 공개 재배포·전자화 허가 미확인."
+});
+const key="aon-outcome-tool-favorites-v1";
+const validIds=new Set(tools.map(t=>t.id));
+let favorites=new Set(), favoritesOnly=false, dialogTrigger=null;
 try{const saved=JSON.parse(localStorage.getItem(key)||"[]");if(Array.isArray(saved))favorites=new Set(saved.filter(id=>typeof id==="string"&&validIds.has(id)));}catch{}
-const grid=document.getElementById("tool-grid"),search=document.getElementById("tool-search"),filter=document.getElementById("region-filter"),dialog=document.getElementById("tool-dialog");
+const grid=document.getElementById("tool-grid");
+const search=document.getElementById("tool-search");
+const filter=document.getElementById("region-filter");
+const dialog=document.getElementById("tool-dialog");
 function element(tag,cls,text){const el=document.createElement(tag);if(cls)el.className=cls;if(text!==undefined)el.textContent=text;return el;}
 function setText(id,value){document.getElementById(id).textContent=value;}
-function openTool(t){setText("dialog-category",t.category);setText("dialog-title",t.name);setText("dialog-abbreviation",t.abbreviation);setText("dialog-description",t.description);setText("dialog-purpose",t.purpose);setText("dialog-source-status",t.sourceStatus||"원본·한국어판·버전 대조 확인 전");setText("dialog-rights-status",t.rightsStatus||"사용·재배포 조건 확인 전 · 임의 문항·번역 제공 안 함");const a=document.getElementById("dialog-official-link");a.hidden=true;a.removeAttribute("href");if(t.officialUrl&&/^https:\/\//.test(t.officialUrl)){a.href=t.officialUrl;a.hidden=false;}dialog.showModal();}
-function render(){const query=search.value.trim().toLocaleLowerCase("ko-KR"),selected=tools.filter(t=>(filter.value==="all"||t.region===filter.value)&&(!favoritesOnly||favorites.has(t.id))&&[t.name,t.abbreviation,t.description,t.purpose,t.category].join(" ").toLocaleLowerCase("ko-KR").includes(query));grid.replaceChildren();for(const t of selected){const card=element("article","card"),meta=element("div","card-meta"),fav=element("button","favorite",favorites.has(t.id)?"★":"☆");fav.type="button";fav.setAttribute("aria-label",`${t.abbreviation} 즐겨찾기 ${favorites.has(t.id)?"해제":"추가"}`);fav.setAttribute("aria-pressed",String(favorites.has(t.id)));fav.addEventListener("click",()=>{favorites.has(t.id)?favorites.delete(t.id):favorites.add(t.id);try{localStorage.setItem(key,JSON.stringify([...favorites]));}catch{}render();});meta.append(element("span","category",t.category),fav);const detail=element("button","detail","설명·사용 조건 확인");detail.type="button";detail.setAttribute("aria-label",`${t.abbreviation} 설명·사용 조건 확인`);detail.addEventListener("click",()=>openTool(t));card.append(meta,element("h3","",t.name),element("p","abbreviation",t.abbreviation),element("p","description",t.description),element("p","purpose",t.purpose),element("p","status",t.officialUrl?"공식 출처 연결 · 양식 재배포 조건 확인 전":"원본·한국어판·재배포 조건 확인 전"),detail);grid.append(card);}setText("result-count",`${selected.length}개 도구`);document.getElementById("empty-state").hidden=selected.length!==0;}
-search.addEventListener("input",render);filter.addEventListener("change",render);document.getElementById("favorite-filter").addEventListener("click",event=>{favoritesOnly=!favoritesOnly;event.currentTarget.setAttribute("aria-pressed",String(favoritesOnly));render();});document.getElementById("dialog-close").addEventListener("click",()=>dialog.close());document.getElementById("print-guide").addEventListener("click",()=>window.print());dialog.addEventListener("click",event=>{if(event.target===dialog){const b=dialog.getBoundingClientRect();if(event.clientX<b.left||event.clientX>b.right||event.clientY<b.top||event.clientY>b.bottom)dialog.close();}});render();
+function openTool(t,trigger){
+ dialogTrigger=trigger;
+ setText("dialog-category",t.category);
+ setText("dialog-title",t.name);
+ setText("dialog-abbreviation",t.abbreviation);
+ setText("dialog-description",t.description);
+ setText("dialog-purpose",t.purpose);
+ setText("dialog-source-status",t.sourceStatus||"원본·한국어판·버전 대조 확인 전");
+ setText("dialog-rights-status",t.rightsStatus||"사용·재배포 조건 확인 전 · 임의 문항·번역 제공 안 함");
+ setText("dialog-availability","공개 재배포와 해당 언어판·전자화 조건 확인 전입니다. 현재 이 사이트에서 설문 문항 파일이나 자동채점 설문을 제공하지 않습니다.");
+ const a=document.getElementById("dialog-official-link");
+ a.hidden=true;a.removeAttribute("href");
+ a.textContent=t.officialLabel||"공식 출처·이용 조건 확인 ↗";
+ if(t.officialUrl&&/^https:\/\//.test(t.officialUrl)){a.href=t.officialUrl;a.hidden=false;}
+ dialog.showModal();
+ document.getElementById("dialog-close").focus();
+}
+function renderFeatured(){
+ const featured=document.getElementById("featured-grid");
+ ["ndi","hit-6","wdq"].forEach((id,i)=>{
+  const t=tools.find(item=>item.id===id),card=element("article","feature-card"),top=element("div","feature-top");
+  top.append(element("span","feature-code",t.abbreviation),element("span","feature-index","0"+(i+1)+" / "+t.category));
+  const button=element("button","","목적·사용 조건 확인");
+  button.type="button";button.setAttribute("aria-label",t.abbreviation+" 목적·사용 조건 확인");
+  const arrow=element("span","","↗");arrow.setAttribute("aria-hidden","true");button.append(arrow);
+  button.addEventListener("click",()=>openTool(t,button));
+  card.append(top,element("h3","",t.name),element("p","",t.description),button);featured.append(card);
+ });
+}
+function render(){
+ const query=search.value.trim().toLocaleLowerCase("ko-KR");
+ const selected=tools.filter(t=>(filter.value==="all"||t.region===filter.value)&&(!favoritesOnly||favorites.has(t.id))&&[t.name,t.abbreviation,t.description,t.purpose,t.category].join(" ").toLocaleLowerCase("ko-KR").includes(query));
+ grid.replaceChildren();
+ for(const t of selected){
+  const card=element("article","card"),meta=element("div","card-meta"),fav=element("button","favorite",favorites.has(t.id)?"★":"☆");
+  card.dataset.tool=t.id;fav.type="button";
+  fav.setAttribute("aria-label",t.abbreviation+" 즐겨찾기 "+(favorites.has(t.id)?"해제":"추가"));
+  fav.setAttribute("aria-pressed",String(favorites.has(t.id)));
+  fav.addEventListener("click",()=>{
+   favorites.has(t.id)?favorites.delete(t.id):favorites.add(t.id);
+   try{localStorage.setItem(key,JSON.stringify([...favorites]));}catch{}
+   render();
+   const next=grid.querySelector('[data-tool="'+t.id+'"] .favorite');
+   (next||document.getElementById("favorite-filter")).focus();
+  });
+  meta.append(element("span","category",t.category),fav);
+  const detail=element("button","detail","설명·사용 조건 확인");
+  detail.type="button";detail.setAttribute("aria-label",t.abbreviation+" 설명·사용 조건 확인");
+  detail.addEventListener("click",()=>openTool(t,detail));
+  card.append(meta,element("p","abbreviation",t.abbreviation),element("h3","",t.name),element("p","description",t.description),element("p","purpose",t.purpose),element("p","status",t.officialUrl?"공식 출처 연결 · 파일 배포 전":"원본·한국어판·사용 조건 확인 전"),detail);
+  grid.append(card);
+ }
+ setText("result-count","전체 "+tools.length+"개 중 "+selected.length+"개 도구");
+ document.getElementById("empty-state").hidden=selected.length!==0;
+}
+function resetFilters(){search.value="";filter.value="all";favoritesOnly=false;document.getElementById("favorite-filter").setAttribute("aria-pressed","false");render();}
+search.addEventListener("input",render);
+filter.addEventListener("change",render);
+document.getElementById("favorite-filter").addEventListener("click",event=>{favoritesOnly=!favoritesOnly;event.currentTarget.setAttribute("aria-pressed",String(favoritesOnly));render();});
+document.getElementById("reset-filters").addEventListener("click",resetFilters);
+document.getElementById("empty-reset").addEventListener("click",()=>{resetFilters();search.focus();});
+document.getElementById("dialog-close").addEventListener("click",()=>dialog.close());
+dialog.addEventListener("close",()=>{if(dialogTrigger?.isConnected)dialogTrigger.focus();});
+document.getElementById("print-guide").addEventListener("click",()=>window.print());
+dialog.addEventListener("click",event=>{if(event.target===dialog){const b=dialog.getBoundingClientRect();if(event.clientX<b.left||event.clientX>b.right||event.clientY<b.top||event.clientY>b.bottom)dialog.close();}});
+renderFeatured();render();
 })();
