@@ -1,0 +1,42 @@
+/* AON health articles: scoped to the independent general-reader series. */
+.aonHealth{background:#fff;color:var(--ink)}
+.ahMain{max-width:1180px;padding:28px 30px 80px}
+.ahBack{display:inline-block;margin:0 0 24px;color:#655c56;font-size:13px;text-underline-offset:4px}
+.ahHero{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,1fr);gap:42px;align-items:center;padding:36px;background:var(--paper);border:1px solid var(--line);border-radius:22px}
+.ahKicker{color:#b52c24;font-size:12px;letter-spacing:.08em;font-weight:800}
+.ahHero h1{font-size:clamp(28px,3.25vw,42px);line-height:1.36;letter-spacing:-.05em;word-break:keep-all;overflow-wrap:break-word;margin:16px 0 20px}
+.ahDeck{font-size:16px;line-height:1.85;color:#5f5751;word-break:keep-all}
+.ahMeta{font-size:12px;color:#72665d;margin-top:24px}
+.ahCover{margin:0;min-width:0}.ahCover img{display:block;width:100%;height:auto;border-radius:13px}
+.ahCover figcaption{font-size:11px;line-height:1.6;color:#746860;margin-top:9px}
+.ahBody{max-width:790px;margin:42px auto 0;font-size:17px;line-height:1.95;overflow-wrap:break-word}
+.ahContents{padding:20px 24px;border:1px solid var(--line);border-radius:14px;background:#fffdfa;margin-bottom:36px;font-size:14px}
+.ahContents summary{cursor:pointer;font-weight:750;color:#40352e;min-height:28px}
+.ahContents ol{margin:18px 0 0;padding-left:22px;line-height:1.7}
+.ahContents li{margin:10px 0}.ahContents a{text-decoration:none}.ahContents a:hover{text-decoration:underline}
+.ahSection{margin:48px 0;scroll-margin-top:150px}
+.ahNumber{color:#b62f27;font-size:12px;font-weight:800;letter-spacing:.1em}
+.ahSection h2{margin:6px 0 20px;font-size:clamp(22px,2.35vw,28px);letter-spacing:-.035em;line-height:1.5;word-break:keep-all}
+.ahSection p{margin:0 0 19px}
+.ahFigure{margin:30px -20px}.ahFigure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:15px}
+.ahFigure figcaption{padding:13px 10px 0;font-size:14px;line-height:1.8;color:#5f5751}.ahFigure small{display:block;font-size:11px;color:#786e66;margin-top:6px}
+.ahCite{font-size:11px;white-space:normal;line-height:1}.ahCite a{color:#b12c25;text-decoration:none;padding:0 2px}
+.ahEvidence{padding:20px 24px;margin:24px 0;border:1px solid #ddd5cc;border-radius:12px;background:#faf8f5;font-size:15px}
+.ahEvidence summary{cursor:pointer;font-weight:800;line-height:1.7}.ahEvidence p:first-of-type{margin-top:20px}.ahEvidence p:last-child{margin-bottom:0}
+.ahWarning{padding:24px 26px;border-left:4px solid var(--red);border-radius:0 12px 12px 0;background:#fff6f3}
+.ahWarning h2{font-size:24px}.ahWarning p:last-child{margin-bottom:0}
+.ahTakeaway{background:var(--paper);border-top:3px solid var(--red);padding:28px;border-radius:0 0 14px 14px;margin:48px 0 32px}
+.ahTakeaway h2{font-size:21px;margin:0 0 13px}.ahTakeaway p{margin:0}
+.ahReferences{border-top:1px solid var(--line);padding-top:26px;margin-top:44px;font-size:13px;line-height:1.8;scroll-margin-top:140px}
+.ahReferences h2{font-size:22px;margin:0 0 8px}.ahReferences>p{color:var(--muted)}
+.ahReferences ol{padding-left:22px}.ahReferences li{padding:10px 0;scroll-margin-top:140px}
+.ahReferences a{font-weight:700;text-underline-offset:3px;overflow-wrap:anywhere}
+.ahReferences li p{margin:8px 0;color:#6b625c}
+.ahNotice{font-size:13px;line-height:1.8;border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin:32px 0;color:#61574f}
+.ahMore{margin-top:40px;padding-top:24px;border-top:1px solid var(--line)}
+.ahMore h2{font-size:20px}.ahMore a{display:block;padding:14px 0;font-size:15px;text-underline-offset:4px}
+.aonHealth a:focus-visible,.aonHealth summary:focus-visible{outline:3px solid #b62f27;outline-offset:4px}
+@media(max-width:850px){.ahHero{grid-template-columns:1fr;gap:24px;padding:26px}.ahHero h1{font-size:32px}.ahCover{max-width:580px;margin:auto}.ahBody{margin-top:28px}.ahFigure{margin:28px 0}}
+@media(max-width:540px){.ahMain{padding:20px 18px 48px}.ahHero{padding:23px 20px;border-radius:16px}.ahHero h1{font-size:28px;line-height:1.42}.ahDeck{font-size:15px}.ahMeta{font-size:11px}.ahBody{font-size:16px;line-height:1.9}.ahSection{margin:36px 0}.ahSection h2{font-size:22px}.ahWarning,.ahEvidence,.ahContents,.ahTakeaway{padding:20px}.ahWarning h2{font-size:21px}.ahFigure figcaption{padding:12px 0 0;font-size:13px}}
+@media print{.siteHeader,.storyFooter,.ahBack,.ahContents,.ahMore{display:none!important}.ahMain{max-width:none;padding:0}.ahHero{padding:20px;grid-template-columns:1.2fr 1fr;gap:20px}.ahHero h1{font-size:26px}.ahBody{max-width:none;font-size:12pt}.ahFigure,.ahTakeaway{break-inside:avoid}.ahSection{margin:25px 0}.ahEvidence{break-inside:avoid}}
+
