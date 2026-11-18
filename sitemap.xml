@@ -55,6 +55,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://kjp9204-oss.github.io/aonrehabcenter/newsletter/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://kjp9204-oss.github.io/aonrehabcenter/posts/adams-acl-rehabilitation.html</loc>
     <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
